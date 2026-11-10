@@ -1,0 +1,699 @@
+{
+  "control (khong drift)": {
+    "n": 40000,
+    "prevalence": 0.023475,
+    "models": {
+      "random_forest": {
+        "n_features": 77,
+        "n_feature_alert": 0,
+        "n_feature_warn": 0,
+        "share_feature_alert": 0.0,
+        "max_psi": 0.0004564649327774977,
+        "top_features": [
+          "Packet Length Mean",
+          "Fwd Header Length",
+          "Fwd IAT Max",
+          "Avg Packet Size",
+          "Fwd Packet Length Max"
+        ],
+        "score_psi": 1.7515230779020223e-05,
+        "alert_rate": 0.023425,
+        "alert_rate_ratio": 1.0020937294182217,
+        "label_free_status": "STABLE",
+        "reasons": [],
+        "performance_at_frozen_threshold": {
+          "precision": 0.9989327641408752,
+          "recall": 0.9968051118210862,
+          "f1": 0.9978678038379531,
+          "fpr": 2.5600983077750185e-05,
+          "fp": 1,
+          "fn": 3,
+          "tp": 936,
+          "fp_per_100k_flows": 2.5,
+          "n_attack": 939
+        },
+        "f1_drop_vs_control": 0.0,
+        "perf_status": "OK",
+        "silent_failure": false,
+        "action": "TIEP TUC GIAM SAT"
+      },
+      "logreg": {
+        "n_features": 77,
+        "n_feature_alert": 0,
+        "n_feature_warn": 0,
+        "share_feature_alert": 0.0,
+        "max_psi": 0.0004564649327774977,
+        "top_features": [
+          "Packet Length Mean",
+          "Fwd Header Length",
+          "Fwd IAT Max",
+          "Avg Packet Size",
+          "Fwd Packet Length Max"
+        ],
+        "score_psi": 9.786366942605762e-05,
+        "alert_rate": 0.023025,
+        "alert_rate_ratio": 0.9882365501101321,
+        "label_free_status": "STABLE",
+        "reasons": [],
+        "performance_at_frozen_threshold": {
+          "precision": 0.9674267100977199,
+          "recall": 0.9488817891373802,
+          "f1": 0.9580645161290322,
+          "fpr": 0.0007680294923325055,
+          "fp": 30,
+          "fn": 48,
+          "tp": 891,
+          "fp_per_100k_flows": 75.0,
+          "n_attack": 939
+        },
+        "f1_drop_vs_control": 0.0,
+        "perf_status": "OK",
+        "silent_failure": false,
+        "action": "TIEP TUC GIAM SAT"
+      }
+    },
+    "top_drifting_features": [
+      {
+        "feature": "Packet Length Mean",
+        "psi": 0.0004564649327774977,
+        "ks": 0.010100007057189941,
+        "status": "OK"
+      },
+      {
+        "feature": "Fwd Header Length",
+        "psi": 0.0004546673484876883,
+        "ks": 0.005050003528594971,
+        "status": "OK"
+      },
+      {
+        "feature": "Fwd IAT Max",
+        "psi": 0.0004512929916970019,
+        "ks": 0.005899995565414429,
+        "status": "OK"
+      },
+      {
+        "feature": "Avg Packet Size",
+        "psi": 0.00041269750962872427,
+        "ks": 0.007250010967254639,
+        "status": "OK"
+      },
+      {
+        "feature": "Fwd Packet Length Max",
+        "psi": 0.0003737014723176271,
+        "ks": 0.005150020122528076,
+        "status": "OK"
+      },
+      {
+        "feature": "Packet Length Min",
+        "psi": 0.00035593144903797995,
+        "ks": 0.007749974727630615,
+        "status": "OK"
+      },
+      {
+        "feature": "Fwd IAT Mean",
+        "psi": 0.00035205378849826013,
+        "ks": 0.007750004529953003,
+        "status": "OK"
+      },
+      {
+        "feature": "Bwd IAT Min",
+        "psi": 0.00031594332815000766,
+        "ks": 0.003999948501586914,
+        "status": "OK"
+      },
+      {
+        "feature": "Flow Bytes/s",
+        "psi": 0.0003148198904510438,
+        "ks": 0.007400035858154297,
+        "status": "OK"
+      },
+      {
+        "feature": "Fwd Packet Length Min",
+        "psi": 0.0003061049685380747,
+        "ks": 0.003899991512298584,
+        "status": "OK"
+      }
+    ]
+  },
+  "covariate_network": {
+    "n": 40000,
+    "prevalence": 0.023475,
+    "models": {
+      "random_forest": {
+        "n_features": 77,
+        "n_feature_alert": 17,
+        "n_feature_warn": 2,
+        "share_feature_alert": 0.22077922077922077,
+        "max_psi": 1.0863586320293546,
+        "top_features": [
+          "Flow IAT Min",
+          "Fwd IAT Min",
+          "Bwd IAT Min",
+          "Flow IAT Max",
+          "Bwd Packets/s"
+        ],
+        "score_psi": 0.03448010678781157,
+        "alert_rate": 0.011,
+        "alert_rate_ratio": 0.47056695938529086,
+        "label_free_status": "DRIFT",
+        "reasons": [
+          "22% feature co PSI >= 0.25",
+          "ty le du doan tan cong x0.47 so voi baseline"
+        ],
+        "performance_at_frozen_threshold": {
+          "precision": 0.9954545454545455,
+          "recall": 0.46645367412140576,
+          "f1": 0.6352429296591734,
+          "fpr": 5.120196615550037e-05,
+          "fp": 2,
+          "fn": 501,
+          "tp": 438,
+          "fp_per_100k_flows": 5.0,
+          "n_attack": 939
+        },
+        "f1_drop_vs_control": 0.36262487417877975,
+        "perf_status": "DEGRADED",
+        "silent_failure": false,
+        "action": "RETRAIN / DIEU TRA"
+      },
+      "logreg": {
+        "n_features": 77,
+        "n_feature_alert": 17,
+        "n_feature_warn": 2,
+        "share_feature_alert": 0.22077922077922077,
+        "max_psi": 1.0863586320293546,
+        "top_features": [
+          "Flow IAT Min",
+          "Fwd IAT Min",
+          "Bwd IAT Min",
+          "Flow IAT Max",
+          "Bwd Packets/s"
+        ],
+        "score_psi": 0.0026183862910662934,
+        "alert_rate": 0.0231,
+        "alert_rate_ratio": 0.9914555616740087,
+        "label_free_status": "DRIFT",
+        "reasons": [
+          "22% feature co PSI >= 0.25"
+        ],
+        "performance_at_frozen_threshold": {
+          "precision": 0.9664502164502164,
+          "recall": 0.9510117145899893,
+          "f1": 0.9586688137412775,
+          "fpr": 0.0007936304754102558,
+          "fp": 31,
+          "fn": 46,
+          "tp": 893,
+          "fp_per_100k_flows": 77.5,
+          "n_attack": 939
+        },
+        "f1_drop_vs_control": -0.0006042976122453414,
+        "perf_status": "OK",
+        "silent_failure": false,
+        "action": "DIEU TRA (co drift dau vao)"
+      }
+    },
+    "top_drifting_features": [
+      {
+        "feature": "Flow IAT Min",
+        "psi": 1.0863586320293546,
+        "ks": 0.3304999768733978,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Fwd IAT Min",
+        "psi": 0.8494419506825165,
+        "ks": 0.27150002121925354,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Bwd IAT Min",
+        "psi": 0.7331357289938266,
+        "ks": 0.25815001130104065,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Flow IAT Max",
+        "psi": 0.5053923778778384,
+        "ks": 0.1586500108242035,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Bwd Packets/s",
+        "psi": 0.36944567725470123,
+        "ks": 0.14179998636245728,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Bwd IAT Max",
+        "psi": 0.36886610989941854,
+        "ks": 0.17740002274513245,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Fwd IAT Max",
+        "psi": 0.3664902410852271,
+        "ks": 0.1855500042438507,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Flow IAT Mean",
+        "psi": 0.3395216005712727,
+        "ks": 0.14765000343322754,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Bwd IAT Total",
+        "psi": 0.3387625866279121,
+        "ks": 0.1764499843120575,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Bwd IAT Mean",
+        "psi": 0.33805724906415224,
+        "ks": 0.18004998564720154,
+        "status": "ALERT"
+      }
+    ]
+  },
+  "prevalence_low": {
+    "n": 39257,
+    "prevalence": 0.0049927401482538145,
+    "models": {
+      "random_forest": {
+        "n_features": 77,
+        "n_feature_alert": 0,
+        "n_feature_warn": 0,
+        "share_feature_alert": 0.0,
+        "max_psi": 0.004427279433466553,
+        "top_features": [
+          "Fwd Packets Length Total",
+          "Subflow Fwd Bytes",
+          "Fwd Packet Length Max",
+          "Fwd Packet Length Std",
+          "Fwd Packet Length Mean"
+        ],
+        "score_psi": 0.02861783512115886,
+        "alert_rate": 0.005018213312275518,
+        "alert_rate_ratio": 0.2146732163549345,
+        "label_free_status": "DRIFT",
+        "reasons": [
+          "ty le du doan tan cong x0.21 so voi baseline"
+        ],
+        "performance_at_frozen_threshold": {
+          "precision": 0.9949238578680203,
+          "recall": 1.0,
+          "f1": 0.9974554707379135,
+          "fpr": 2.5600983077750185e-05,
+          "fp": 1,
+          "fn": 0,
+          "tp": 196,
+          "fp_per_100k_flows": 2.5473164021703134,
+          "n_attack": 196
+        },
+        "f1_drop_vs_control": 0.0004123331000396302,
+        "perf_status": "OK",
+        "silent_failure": false,
+        "action": "DIEU TRA (co drift dau vao)"
+      },
+      "logreg": {
+        "n_features": 77,
+        "n_feature_alert": 0,
+        "n_feature_warn": 0,
+        "share_feature_alert": 0.0,
+        "max_psi": 0.004427279433466553,
+        "top_features": [
+          "Fwd Packets Length Total",
+          "Subflow Fwd Bytes",
+          "Fwd Packet Length Max",
+          "Fwd Packet Length Std",
+          "Fwd Packet Length Mean"
+        ],
+        "score_psi": 0.025706268031821747,
+        "alert_rate": 0.0055022034286878775,
+        "alert_rate_ratio": 0.23615541951664054,
+        "label_free_status": "DRIFT",
+        "reasons": [
+          "ty le du doan tan cong x0.24 so voi baseline"
+        ],
+        "performance_at_frozen_threshold": {
+          "precision": 0.8611111111111112,
+          "recall": 0.9489795918367347,
+          "f1": 0.9029126213592233,
+          "fpr": 0.0007680294923325055,
+          "fp": 30,
+          "fn": 10,
+          "tp": 186,
+          "fp_per_100k_flows": 76.41949206510941,
+          "n_attack": 196
+        },
+        "f1_drop_vs_control": 0.05515189476980886,
+        "perf_status": "DEGRADED",
+        "silent_failure": false,
+        "action": "RETRAIN / DIEU TRA"
+      }
+    },
+    "top_drifting_features": [
+      {
+        "feature": "Fwd Packets Length Total",
+        "psi": 0.004427279433466553,
+        "ks": 0.010999977588653564,
+        "status": "OK"
+      },
+      {
+        "feature": "Subflow Fwd Bytes",
+        "psi": 0.004427279433466553,
+        "ks": 0.010999977588653564,
+        "status": "OK"
+      },
+      {
+        "feature": "Fwd Packet Length Max",
+        "psi": 0.0043829859737803435,
+        "ks": 0.008450031280517578,
+        "status": "OK"
+      },
+      {
+        "feature": "Fwd Packet Length Std",
+        "psi": 0.0038654661033160095,
+        "ks": 0.01239997148513794,
+        "status": "OK"
+      },
+      {
+        "feature": "Fwd Packet Length Mean",
+        "psi": 0.003284948751073439,
+        "ks": 0.009949997067451477,
+        "status": "OK"
+      },
+      {
+        "feature": "Avg Fwd Segment Size",
+        "psi": 0.003284948751073439,
+        "ks": 0.009999990463256836,
+        "status": "OK"
+      },
+      {
+        "feature": "Fwd IAT Max",
+        "psi": 0.003035046858888939,
+        "ks": 0.018700003623962402,
+        "status": "OK"
+      },
+      {
+        "feature": "Packet Length Max",
+        "psi": 0.00277427917267016,
+        "ks": 0.009599998593330383,
+        "status": "OK"
+      },
+      {
+        "feature": "Bwd Packet Length Std",
+        "psi": 0.002252492326219575,
+        "ks": 0.012950003147125244,
+        "status": "OK"
+      },
+      {
+        "feature": "Bwd IAT Mean",
+        "psi": 0.002220875893041258,
+        "ks": 0.018849968910217285,
+        "status": "OK"
+      }
+    ]
+  },
+  "evasion_low_slow": {
+    "n": 40000,
+    "prevalence": 0.023475,
+    "models": {
+      "random_forest": {
+        "n_features": 77,
+        "n_feature_alert": 0,
+        "n_feature_warn": 0,
+        "share_feature_alert": 0.0,
+        "max_psi": 0.007610544541832589,
+        "top_features": [
+          "Fwd IAT Max",
+          "Flow IAT Max",
+          "Bwd IAT Std",
+          "Bwd IAT Max",
+          "Flow IAT Std"
+        ],
+        "score_psi": 0.06635550537152535,
+        "alert_rate": 0.0056,
+        "alert_rate_ratio": 0.23956136114160262,
+        "label_free_status": "DRIFT",
+        "reasons": [
+          "ty le du doan tan cong x0.24 so voi baseline"
+        ],
+        "performance_at_frozen_threshold": {
+          "precision": 0.9955357142857143,
+          "recall": 0.2374866879659212,
+          "f1": 0.3834909716251075,
+          "fpr": 2.5600983077750185e-05,
+          "fp": 1,
+          "fn": 716,
+          "tp": 223,
+          "fp_per_100k_flows": 2.5,
+          "n_attack": 939
+        },
+        "f1_drop_vs_control": 0.6143768322128457,
+        "perf_status": "DEGRADED",
+        "silent_failure": false,
+        "action": "RETRAIN / DIEU TRA"
+      },
+      "logreg": {
+        "n_features": 77,
+        "n_feature_alert": 0,
+        "n_feature_warn": 0,
+        "share_feature_alert": 0.0,
+        "max_psi": 0.007610544541832589,
+        "top_features": [
+          "Fwd IAT Max",
+          "Flow IAT Max",
+          "Bwd IAT Std",
+          "Bwd IAT Max",
+          "Flow IAT Std"
+        ],
+        "score_psi": 0.04506463855006272,
+        "alert_rate": 0.023075,
+        "alert_rate_ratio": 0.9903825578193831,
+        "label_free_status": "STABLE",
+        "reasons": [],
+        "performance_at_frozen_threshold": {
+          "precision": 0.9674972914409534,
+          "recall": 0.9510117145899893,
+          "f1": 0.9591836734693878,
+          "fpr": 0.0007680294923325055,
+          "fp": 30,
+          "fn": 46,
+          "tp": 893,
+          "fp_per_100k_flows": 75.0,
+          "n_attack": 939
+        },
+        "f1_drop_vs_control": -0.0011191573403556143,
+        "perf_status": "OK",
+        "silent_failure": false,
+        "action": "TIEP TUC GIAM SAT"
+      }
+    },
+    "top_drifting_features": [
+      {
+        "feature": "Fwd IAT Max",
+        "psi": 0.007610544541832589,
+        "ks": 0.020649969577789307,
+        "status": "OK"
+      },
+      {
+        "feature": "Flow IAT Max",
+        "psi": 0.007384253901502765,
+        "ks": 0.020500004291534424,
+        "status": "OK"
+      },
+      {
+        "feature": "Bwd IAT Std",
+        "psi": 0.006153052385604169,
+        "ks": 0.016950011253356934,
+        "status": "OK"
+      },
+      {
+        "feature": "Bwd IAT Max",
+        "psi": 0.0056982932947404604,
+        "ks": 0.01699995994567871,
+        "status": "OK"
+      },
+      {
+        "feature": "Flow IAT Std",
+        "psi": 0.0053728987899472795,
+        "ks": 0.022000014781951904,
+        "status": "OK"
+      },
+      {
+        "feature": "Flow IAT Mean",
+        "psi": 0.004976326327367619,
+        "ks": 0.019250035285949707,
+        "status": "OK"
+      },
+      {
+        "feature": "Flow Packets/s",
+        "psi": 0.004582402324796599,
+        "ks": 0.022550001740455627,
+        "status": "OK"
+      },
+      {
+        "feature": "Fwd IAT Std",
+        "psi": 0.004334930558248213,
+        "ks": 0.013850033283233643,
+        "status": "OK"
+      },
+      {
+        "feature": "Flow Duration",
+        "psi": 0.003917866271221857,
+        "ks": 0.017549991607666016,
+        "status": "OK"
+      },
+      {
+        "feature": "Bwd IAT Total",
+        "psi": 0.0035533094176541918,
+        "ks": 0.012149989604949951,
+        "status": "OK"
+      }
+    ]
+  },
+  "combined": {
+    "n": 39257,
+    "prevalence": 0.0049927401482538145,
+    "models": {
+      "random_forest": {
+        "n_features": 77,
+        "n_feature_alert": 17,
+        "n_feature_warn": 3,
+        "share_feature_alert": 0.22077922077922077,
+        "max_psi": 1.0708070165345254,
+        "top_features": [
+          "Flow IAT Min",
+          "Fwd IAT Min",
+          "Bwd IAT Min",
+          "Flow IAT Max",
+          "Bwd IAT Max"
+        ],
+        "score_psi": 0.07708421928040335,
+        "alert_rate": 0.0009170339047813128,
+        "alert_rate_ratio": 0.039229623293287524,
+        "label_free_status": "DRIFT",
+        "reasons": [
+          "22% feature co PSI >= 0.25",
+          "ty le du doan tan cong x0.04 so voi baseline"
+        ],
+        "performance_at_frozen_threshold": {
+          "precision": 0.9166666666666666,
+          "recall": 0.1683673469387755,
+          "f1": 0.28448275862068967,
+          "fpr": 7.680294923325056e-05,
+          "fp": 3,
+          "fn": 163,
+          "tp": 33,
+          "fp_per_100k_flows": 7.64194920651094,
+          "n_attack": 196
+        },
+        "f1_drop_vs_control": 0.7133850452172634,
+        "perf_status": "DEGRADED",
+        "silent_failure": false,
+        "action": "RETRAIN / DIEU TRA"
+      },
+      "logreg": {
+        "n_features": 77,
+        "n_feature_alert": 17,
+        "n_feature_warn": 3,
+        "share_feature_alert": 0.22077922077922077,
+        "max_psi": 1.0708070165345254,
+        "top_features": [
+          "Flow IAT Min",
+          "Fwd IAT Min",
+          "Bwd IAT Min",
+          "Flow IAT Max",
+          "Bwd IAT Max"
+        ],
+        "score_psi": 0.05745510666931586,
+        "alert_rate": 0.005578622920752987,
+        "alert_rate_ratio": 0.2394353558988161,
+        "label_free_status": "DRIFT",
+        "reasons": [
+          "22% feature co PSI >= 0.25",
+          "ty le du doan tan cong x0.24 so voi baseline"
+        ],
+        "performance_at_frozen_threshold": {
+          "precision": 0.8538812785388128,
+          "recall": 0.9540816326530612,
+          "f1": 0.9012048192771084,
+          "fpr": 0.0008192314584880059,
+          "fp": 32,
+          "fn": 9,
+          "tp": 187,
+          "fp_per_100k_flows": 81.51412486945003,
+          "n_attack": 196
+        },
+        "f1_drop_vs_control": 0.056859696851923824,
+        "perf_status": "DEGRADED",
+        "silent_failure": false,
+        "action": "RETRAIN / DIEU TRA"
+      }
+    },
+    "top_drifting_features": [
+      {
+        "feature": "Flow IAT Min",
+        "psi": 1.0708070165345254,
+        "ks": 0.32885003089904785,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Fwd IAT Min",
+        "psi": 0.8941525153156074,
+        "ks": 0.2685999870300293,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Bwd IAT Min",
+        "psi": 0.7400380955243565,
+        "ks": 0.259550005197525,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Flow IAT Max",
+        "psi": 0.5328264198451877,
+        "ks": 0.15114998817443848,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Bwd IAT Max",
+        "psi": 0.39945272984803615,
+        "ks": 0.17750003933906555,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Fwd IAT Max",
+        "psi": 0.3853818124077766,
+        "ks": 0.1716499924659729,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Bwd Packets/s",
+        "psi": 0.37741272034148093,
+        "ks": 0.1403999924659729,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Bwd IAT Mean",
+        "psi": 0.3523778973913223,
+        "ks": 0.1660500168800354,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Bwd IAT Total",
+        "psi": 0.3515967625504653,
+        "ks": 0.1745000183582306,
+        "status": "ALERT"
+      },
+      {
+        "feature": "Fwd Packets/s",
+        "psi": 0.34387824894498115,
+        "ks": 0.1497499942779541,
+        "status": "ALERT"
+      }
+    ]
+  }
+}

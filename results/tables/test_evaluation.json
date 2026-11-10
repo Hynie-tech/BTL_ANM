@@ -1,0 +1,386 @@
+{
+  "n_test": 77943,
+  "prevalence": 0.02347869597013202,
+  "majority_baseline": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1830,
+    "tn": 76113,
+    "n": 77943,
+    "n_attack": 1830,
+    "prevalence": 0.02347869597013202,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "fpr": 0.0,
+    "fnr": 1.0,
+    "accuracy": 0.976521304029868,
+    "balanced_accuracy": 0.5,
+    "mcc": 0.0,
+    "fp_per_100k_flows": 0.0
+  },
+  "models": {
+    "random_forest": {
+      "version": "v1",
+      "thresholds": {
+        "operating": 0.4112776685683485,
+        "t_alert": 0.4112776685683485,
+        "t_review": 0.15394904967602313,
+        "t_min_cost": 0.2198902999013299,
+        "default": 0.5
+      },
+      "average_precision": 0.9996510840592068,
+      "roc_auc": 0.9999843811462665,
+      "operating_points": {
+        "default_0.5": {
+          "tp": 1821,
+          "fp": 0,
+          "fn": 9,
+          "tn": 76113,
+          "n": 77943,
+          "n_attack": 1830,
+          "prevalence": 0.02347869597013202,
+          "precision": 1.0,
+          "recall": 0.9950819672131147,
+          "f1": 0.9975349219391947,
+          "fpr": 0.0,
+          "fnr": 0.004918032786885246,
+          "accuracy": 0.9998845310034256,
+          "balanced_accuracy": 0.9975409836065574,
+          "mcc": 0.9974789809404428,
+          "fp_per_100k_flows": 0.0,
+          "threshold": 0.5
+        },
+        "operating(F1-max on val)": {
+          "tp": 1826,
+          "fp": 1,
+          "fn": 4,
+          "tn": 76112,
+          "n": 77943,
+          "n_attack": 1830,
+          "prevalence": 0.02347869597013202,
+          "precision": 0.9994526546250684,
+          "recall": 0.9978142076502732,
+          "f1": 0.998632759092152,
+          "fpr": 1.3138360069896076e-05,
+          "fnr": 0.002185792349726776,
+          "accuracy": 0.9999358505574587,
+          "balanced_accuracy": 0.9989005346451016,
+          "mcc": 0.9986002662115013,
+          "fp_per_100k_flows": 1.2829888508268863,
+          "threshold": 0.4112776685683485
+        },
+        "t_alert": {
+          "tp": 1826,
+          "fp": 1,
+          "fn": 4,
+          "tn": 76112,
+          "n": 77943,
+          "n_attack": 1830,
+          "prevalence": 0.02347869597013202,
+          "precision": 0.9994526546250684,
+          "recall": 0.9978142076502732,
+          "f1": 0.998632759092152,
+          "fpr": 1.3138360069896076e-05,
+          "fnr": 0.002185792349726776,
+          "accuracy": 0.9999358505574587,
+          "balanced_accuracy": 0.9989005346451016,
+          "mcc": 0.9986002662115013,
+          "fp_per_100k_flows": 1.2829888508268863,
+          "threshold": 0.4112776685683485
+        },
+        "t_review": {
+          "tp": 1829,
+          "fp": 129,
+          "fn": 1,
+          "tn": 75984,
+          "n": 77943,
+          "n_attack": 1830,
+          "prevalence": 0.02347869597013202,
+          "precision": 0.9341164453524005,
+          "recall": 0.9994535519125683,
+          "f1": 0.9656810982048575,
+          "fpr": 0.0016948484490165938,
+          "fnr": 0.000546448087431694,
+          "accuracy": 0.998332114493925,
+          "balanced_accuracy": 0.9988793517317759,
+          "mcc": 0.9654064855816725,
+          "fp_per_100k_flows": 165.50556175666836,
+          "threshold": 0.15394904967602313
+        },
+        "min_cost": {
+          "tp": 1827,
+          "fp": 41,
+          "fn": 3,
+          "tn": 76072,
+          "n": 77943,
+          "n_attack": 1830,
+          "prevalence": 0.02347869597013202,
+          "precision": 0.978051391862955,
+          "recall": 0.9983606557377049,
+          "f1": 0.9881016765819362,
+          "fpr": 0.0005386727628657391,
+          "fnr": 0.001639344262295082,
+          "accuracy": 0.9994354849056362,
+          "balanced_accuracy": 0.9989109914874196,
+          "mcc": 0.9878673141678853,
+          "fp_per_100k_flows": 52.60254288390234,
+          "threshold": 0.2198902999013299
+        }
+      },
+      "recall_by_attack_type": {
+        "FTP-Patator": 0.9991568296795953,
+        "SSH-Patator": 0.9953416149068323
+      },
+      "precision_at_prevalence": {
+        "0.1000%": 0.9870168070127266,
+        "0.0100%": 0.8836590100535534,
+        "1.0000%": 0.9986981500926234,
+        "2.3479%": 0.9994526546250684
+      },
+      "top_features": [
+        {
+          "feature": "Bwd Header Length",
+          "importance": 0.10578523957458619
+        },
+        {
+          "feature": "Fwd Packet Length Std",
+          "importance": 0.0829107807565374
+        },
+        {
+          "feature": "Init Bwd Win Bytes",
+          "importance": 0.05152239040735178
+        },
+        {
+          "feature": "Packet Length Std",
+          "importance": 0.04375614306221568
+        },
+        {
+          "feature": "Subflow Bwd Packets",
+          "importance": 0.03839838763022661
+        },
+        {
+          "feature": "Init Fwd Win Bytes",
+          "importance": 0.03711970958336768
+        },
+        {
+          "feature": "Packet Length Variance",
+          "importance": 0.0331495179529939
+        },
+        {
+          "feature": "Fwd Seg Size Min",
+          "importance": 0.03195472789777535
+        },
+        {
+          "feature": "Total Backward Packets",
+          "importance": 0.03194333922033584
+        },
+        {
+          "feature": "SYN Flag Count",
+          "importance": 0.0316265015479033
+        },
+        {
+          "feature": "Packet Length Max",
+          "importance": 0.026828164108542007
+        },
+        {
+          "feature": "Bwd Packet Length Mean",
+          "importance": 0.026022034641765134
+        },
+        {
+          "feature": "Bwd IAT Std",
+          "importance": 0.02469464515054247
+        },
+        {
+          "feature": "Packet Length Mean",
+          "importance": 0.02424110080078364
+        },
+        {
+          "feature": "Fwd Packet Length Max",
+          "importance": 0.022905814770957083
+        }
+      ]
+    },
+    "logreg": {
+      "version": "v1",
+      "thresholds": {
+        "operating": 0.9871328635526426,
+        "t_alert": 0.9994814397093831,
+        "t_review": 0.012900595449296757,
+        "t_min_cost": 0.3929556555892171,
+        "default": 0.5
+      },
+      "average_precision": 0.9756595070316265,
+      "roc_auc": 0.9993279262161185,
+      "operating_points": {
+        "default_0.5": {
+          "tp": 1788,
+          "fp": 987,
+          "fn": 42,
+          "tn": 75126,
+          "n": 77943,
+          "n_attack": 1830,
+          "prevalence": 0.02347869597013202,
+          "precision": 0.6443243243243243,
+          "recall": 0.9770491803278688,
+          "f1": 0.7765472312703583,
+          "fpr": 0.012967561388987426,
+          "fnr": 0.022950819672131147,
+          "accuracy": 0.9867980447249913,
+          "balanced_accuracy": 0.9820408094694406,
+          "mcc": 0.7878087068894304,
+          "fp_per_100k_flows": 1266.3099957661368,
+          "threshold": 0.5
+        },
+        "operating(F1-max on val)": {
+          "tp": 1752,
+          "fp": 73,
+          "fn": 78,
+          "tn": 76040,
+          "n": 77943,
+          "n_attack": 1830,
+          "prevalence": 0.02347869597013202,
+          "precision": 0.96,
+          "recall": 0.9573770491803278,
+          "f1": 0.9586867305061559,
+          "fpr": 0.0009591002851024135,
+          "fnr": 0.04262295081967213,
+          "accuracy": 0.9980626868352515,
+          "balanced_accuracy": 0.9782089744476128,
+          "mcc": 0.9576957584625971,
+          "fp_per_100k_flows": 93.6581861103627,
+          "threshold": 0.9871328635526426
+        },
+        "t_alert": {
+          "tp": 18,
+          "fp": 2,
+          "fn": 1812,
+          "tn": 76111,
+          "n": 77943,
+          "n_attack": 1830,
+          "prevalence": 0.02347869597013202,
+          "precision": 0.9,
+          "recall": 0.009836065573770493,
+          "f1": 0.019459459459459462,
+          "fpr": 2.6276720139792153e-05,
+          "fnr": 0.9901639344262295,
+          "accuracy": 0.9767265822460003,
+          "balanced_accuracy": 0.5049048944268154,
+          "mcc": 0.09273993658406203,
+          "fp_per_100k_flows": 2.5659777016537726,
+          "threshold": 0.9994814397093831
+        },
+        "t_review": {
+          "tp": 1830,
+          "fp": 6284,
+          "fn": 0,
+          "tn": 69829,
+          "n": 77943,
+          "n_attack": 1830,
+          "prevalence": 0.02347869597013202,
+          "precision": 0.22553611042642346,
+          "recall": 1.0,
+          "f1": 0.36806114239742554,
+          "fpr": 0.08256145467922694,
+          "fnr": 0.0,
+          "accuracy": 0.9193769806140385,
+          "balanced_accuracy": 0.9587192726603866,
+          "mcc": 0.45487967757080905,
+          "fp_per_100k_flows": 8062.301938596153,
+          "threshold": 0.012900595449296757
+        },
+        "min_cost": {
+          "tp": 1823,
+          "fp": 1652,
+          "fn": 7,
+          "tn": 74461,
+          "n": 77943,
+          "n_attack": 1830,
+          "prevalence": 0.02347869597013202,
+          "precision": 0.5246043165467625,
+          "recall": 0.9961748633879781,
+          "f1": 0.6872761545711593,
+          "fpr": 0.021704570835468315,
+          "fnr": 0.003825136612021858,
+          "accuracy": 0.978715214964782,
+          "balanced_accuracy": 0.987235146276255,
+          "mcc": 0.714926374885867,
+          "fp_per_100k_flows": 2119.4975815660164,
+          "threshold": 0.3929556555892171
+        }
+      },
+      "recall_by_attack_type": {
+        "FTP-Patator": 0.9907251264755481,
+        "SSH-Patator": 0.8959627329192547
+      },
+      "precision_at_prevalence": {
+        "0.1000%": 0.49980054075617214,
+        "0.0100%": 0.09076883034643385,
+        "1.0000%": 0.9097705940886964,
+        "2.3479%": 0.96
+      },
+      "top_features": [
+        {
+          "feature": "Packet Length Mean",
+          "importance": 12.264666714081127
+        },
+        {
+          "feature": "Fwd Packet Length Max",
+          "importance": 9.958674294324872
+        },
+        {
+          "feature": "Bwd Packet Length Mean",
+          "importance": 8.919355416455199
+        },
+        {
+          "feature": "Avg Bwd Segment Size",
+          "importance": 8.919355416455199
+        },
+        {
+          "feature": "Bwd Header Length",
+          "importance": 8.090076362910468
+        },
+        {
+          "feature": "Bwd Packet Length Std",
+          "importance": 7.9272108576555995
+        },
+        {
+          "feature": "Bwd Packet Length Min",
+          "importance": 7.597790353482052
+        },
+        {
+          "feature": "Total Fwd Packets",
+          "importance": 6.769115648198785
+        },
+        {
+          "feature": "Subflow Fwd Packets",
+          "importance": 6.769115648198785
+        },
+        {
+          "feature": "Subflow Bwd Bytes",
+          "importance": 6.5272077944727
+        },
+        {
+          "feature": "Bwd Packets Length Total",
+          "importance": 6.527206987307597
+        },
+        {
+          "feature": "Avg Packet Size",
+          "importance": 5.845734803226581
+        },
+        {
+          "feature": "Flow Duration",
+          "importance": 5.431722652994037
+        },
+        {
+          "feature": "Fwd IAT Mean",
+          "importance": 5.258311706171386
+        },
+        {
+          "feature": "Bwd Packet Length Max",
+          "importance": 4.765255512342816
+        }
+      ]
+    }
+  }
+}

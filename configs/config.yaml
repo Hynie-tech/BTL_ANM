@@ -1,0 +1,114 @@
+# =====================================================================
+#  Cau hinh trung tam. Moi tham so thuc nghiem deu nam o day de ket qua
+#  co the tai lap (reproducible) va thay doi ma khong sua code.
+# =====================================================================
+project:
+  name: BTL_ANM
+  seed: 42
+
+paths:
+  input_data: data/input/Bruteforce-Tuesday-no-metadata.parquet
+  processed_dir: data/output/processed
+  drift_dir: data/output/drift_data
+  registry_dir: data/output/checkpoints
+  predictions_dir: data/output/predictions
+  figures_dir: results/figures
+  metrics_dir: results/tables
+  reports_dir: results/reports
+  docs_results_dir: docs/06_results
+
+data:
+  label_col: Label
+  benign_label: Benign
+  # Ti le chia stratified theo loai nhan (Benign / FTP-Patator / SSH-Patator)
+  split: {train: 0.60, val: 0.20, test: 0.20}
+  # Nhan cua file nay khong co timestamp -> khong the chia theo thoi gian (xem docs/03)
+  has_timestamp: false
+
+models:
+  baseline_version: v1          # phien ban goc dung cho danh gia/giam sat/HITL (scripts 03,05,06,07)
+  primary: random_forest        # mo hinh chinh dung de ra canh bao
+  secondary: logreg             # mo hinh thu hai (doi chung / dong y)
+  logreg:
+    C: 1.0
+    max_iter: 500
+    class_weight: balanced
+  random_forest:
+    n_estimators: 60
+    max_depth: 20
+    min_samples_leaf: 3
+    max_samples: 0.5
+    class_weight: balanced_subsample
+    n_jobs: -1
+
+# ---- Chinh sach canh bao 3 vung (alert / review / ignore) ------------
+alert_policy:
+  target_precision_alert: 0.999   # nguong ALERT: precision >= 99.9% tren tap validation
+  target_recall_review: 0.999     # nguong REVIEW: recall >= 99.9% tren tap validation
+  cost_fn: 50                     # chi phi bo sot 1 tan cong (don vi tuong doi)
+  cost_fp: 1                      # chi phi 1 canh bao gia (thoi gian analyst)
+  deploy_prevalence: 0.001        # ty le tan cong gia dinh o mang that (0.1%)
+
+# ---- Quality gate truoc khi dua mo hinh vao production ---------------
+quality_gate:
+  min_recall: 0.95
+  min_precision: 0.90
+  min_f1: 0.95
+
+# ---- Mo phong drift ---------------------------------------------------
+drift:
+  pool_size: 40000                # so dong lay tu tap TEST de tao tap drift (nho gon)
+  scenarios:
+    covariate_network:            # ha tang mang cham di / jitter: moi flow bi keo gian thoi gian
+      time_scale_median: 2.0
+      time_scale_sigma: 0.30
+    prevalence_low:               # ty le tan cong giam manh (prior shift)
+      attack_prevalence: 0.005
+    evasion_low_slow:             # ke tan cong 'low-and-slow': chi flow tan cong bi keo gian
+      attack_time_scale_median: 8.0
+      attack_time_scale_sigma: 0.30
+    combined:                     # ket hop ca ba
+      time_scale_median: 2.0
+      time_scale_sigma: 0.30
+      attack_time_scale_median: 8.0
+      attack_time_scale_sigma: 0.30
+      attack_prevalence: 0.005
+
+# ---- Giam sat drift ---------------------------------------------------
+monitoring:
+  psi_warn: 0.10
+  psi_alert: 0.25
+  ks_stat_alert: 0.20
+  reference_sample: 50000
+  # Quy tac tong hop: neu >= ty le nay cac feature vuot psi_alert -> canh bao drift
+  feature_share_alert: 0.20
+  score_psi_alert: 0.25
+  alert_rate_ratio_warn: [0.5, 2.0]   # ty le canh bao/so voi baseline ngoai khoang nay -> canh bao
+  f1_drop_trigger: 0.05               # F1 (khi co nhan tre) giam > 5 diem -> kich hoat retrain
+
+# ---- Human-in-the-loop ------------------------------------------------
+hitl:
+  audit_rate: 0.001               # lay mau ngau nhien 0.1% flow 'log_only' de kiem tra bo sot
+  analyst_error_rate: 0.03        # ty le analyst xac minh sai (mo phong)
+  minutes_per_alert: 3.0          # thoi gian xu ly trung binh 1 canh bao
+  analyst_minutes_per_shift: 420  # 7 gio lam viec / ca
+  flows_per_day: 1000000          # luu luong gia dinh (mang quy mo nho-vua); THAY bang so lieu that
+  # Gop canh bao (alert aggregation): 1 chien dich brute-force sinh hang tram flow -> 1 ticket;
+  # canh bao gia doc lap it bi gop hon. HAI SO NAY LA GIA DINH - phai do tren he thong that.
+  flows_per_attack_alert: 200
+  flows_per_fp_alert: 3
+  analyst_shifts_available: 2     # so 'ca analyst' (7h) co san moi ngay danh cho xac minh canh bao
+  p3_review_fraction: 0.20        # ty le canh bao 'bat dong 2 mo hinh' duoc kiem tra mau (phan con lai chi ghi log)
+
+# ---- Retrain ----------------------------------------------------------
+retrain:
+  scenario: evasion_low_slow
+  feedback_fraction: 0.30         # phan du lieu drift da duoc gan nhan (nhan tre) dung de huan luyen
+  val_fraction: 0.15              # phan dung chon nguong moi
+  feedback_weight: 5.0
+  max_regression: 0.02            # v2 khong duoc te hon v1 > 2 diem F1 tren du lieu goc
+
+# ---- Thi nghiem nhieu nhan / poisoning (muc khai niem) ---------------
+label_noise:
+  rates: [0.0, 0.02, 0.05, 0.10, 0.20]
+  rf_n_estimators: 30

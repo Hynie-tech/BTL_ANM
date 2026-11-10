@@ -1,0 +1,11 @@
+scenario,model,n_feature_alert,score_psi,alert_rate_ratio,label_free_status,perf_status,silent_failure,precision,recall,f1,fpr,fp,fn,tp,fp_per_100k_flows,n_attack
+control (khong drift),random_forest,0,1.75152e-05,1.00209,STABLE,OK,False,0.998933,0.996805,0.997868,2.5601e-05,1,3,936,2.5,939
+control (khong drift),logreg,0,9.78637e-05,0.988237,STABLE,OK,False,0.967427,0.948882,0.958065,0.000768029,30,48,891,75,939
+covariate_network,random_forest,17,0.0344801,0.470567,DRIFT,DEGRADED,False,0.995455,0.466454,0.635243,5.1202e-05,2,501,438,5,939
+covariate_network,logreg,17,0.00261839,0.991456,DRIFT,OK,False,0.96645,0.951012,0.958669,0.00079363,31,46,893,77.5,939
+prevalence_low,random_forest,0,0.0286178,0.214673,DRIFT,OK,False,0.994924,1,0.997455,2.5601e-05,1,0,196,2.54732,196
+prevalence_low,logreg,0,0.0257063,0.236155,DRIFT,DEGRADED,False,0.861111,0.94898,0.902913,0.000768029,30,10,186,76.4195,196
+evasion_low_slow,random_forest,0,0.0663555,0.239561,DRIFT,DEGRADED,False,0.995536,0.237487,0.383491,2.5601e-05,1,716,223,2.5,939
+evasion_low_slow,logreg,0,0.0450646,0.990383,STABLE,OK,False,0.967497,0.951012,0.959184,0.000768029,30,46,893,75,939
+combined,random_forest,17,0.0770842,0.0392296,DRIFT,DEGRADED,False,0.916667,0.168367,0.284483,7.68029e-05,3,163,33,7.64195,196
+combined,logreg,17,0.0574551,0.239435,DRIFT,DEGRADED,False,0.853881,0.954082,0.901205,0.000819231,32,9,187,81.5141,196

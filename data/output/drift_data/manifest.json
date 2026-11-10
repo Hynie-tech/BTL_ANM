@@ -1,0 +1,81 @@
+{
+  "source": "mau stratified tu TAP TEST (mo hinh chua tung huan luyen/chon nguong tren du lieu nay)",
+  "pool_rows": 40000,
+  "pool_prevalence": 0.023475,
+  "time_features_scaled": [
+    "Flow Duration",
+    "Flow IAT Mean",
+    "Flow IAT Std",
+    "Flow IAT Max",
+    "Flow IAT Min",
+    "Fwd IAT Total",
+    "Fwd IAT Mean",
+    "Fwd IAT Std",
+    "Fwd IAT Max",
+    "Fwd IAT Min",
+    "Bwd IAT Total",
+    "Bwd IAT Mean",
+    "Bwd IAT Std",
+    "Bwd IAT Max",
+    "Bwd IAT Min",
+    "Active Mean",
+    "Active Std",
+    "Active Max",
+    "Active Min",
+    "Idle Mean",
+    "Idle Std",
+    "Idle Max",
+    "Idle Min"
+  ],
+  "rate_features_inversely_scaled": [
+    "Flow Bytes/s",
+    "Flow Packets/s",
+    "Fwd Packets/s",
+    "Bwd Packets/s"
+  ],
+  "warning": "DU LIEU MO PHONG co kiem soat de minh hoa drift; khong phai luu luong that.",
+  "scenarios": {
+    "covariate_network": {
+      "params": {
+        "time_scale_median": 2.0,
+        "time_scale_sigma": 0.3
+      },
+      "n_rows": 40000,
+      "n_attack": 939,
+      "prevalence": 0.023475,
+      "file": "data/drift/covariate_network.csv.gz"
+    },
+    "prevalence_low": {
+      "params": {
+        "attack_prevalence": 0.005
+      },
+      "n_rows": 39257,
+      "n_attack": 196,
+      "prevalence": 0.0049927401482538145,
+      "file": "data/drift/prevalence_low.csv.gz"
+    },
+    "evasion_low_slow": {
+      "params": {
+        "attack_time_scale_median": 8.0,
+        "attack_time_scale_sigma": 0.3
+      },
+      "n_rows": 40000,
+      "n_attack": 939,
+      "prevalence": 0.023475,
+      "file": "data/drift/evasion_low_slow.csv.gz"
+    },
+    "combined": {
+      "params": {
+        "time_scale_median": 2.0,
+        "time_scale_sigma": 0.3,
+        "attack_time_scale_median": 8.0,
+        "attack_time_scale_sigma": 0.3,
+        "attack_prevalence": 0.005
+      },
+      "n_rows": 39257,
+      "n_attack": 196,
+      "prevalence": 0.0049927401482538145,
+      "file": "data/drift/combined.csv.gz"
+    }
+  }
+}

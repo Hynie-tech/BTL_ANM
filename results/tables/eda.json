@@ -1,0 +1,61 @@
+{
+  "n_rows": 389714,
+  "n_features": 77,
+  "label_counts": {
+    "Benign": 380564,
+    "FTP-Patator": 5931,
+    "SSH-Patator": 3219
+  },
+  "attack_prevalence": 0.023478756216096932,
+  "majority_baseline_accuracy": 0.976521243783903,
+  "n_duplicate_rows_after_float32": 24,
+  "n_missing": 0,
+  "n_inf": 0,
+  "n_constant_features": 10,
+  "constant_features": [
+    "Bwd PSH Flags",
+    "Fwd URG Flags",
+    "Bwd URG Flags",
+    "CWE Flag Count",
+    "Fwd Avg Bytes/Bulk",
+    "Fwd Avg Packets/Bulk",
+    "Fwd Avg Bulk Rate",
+    "Bwd Avg Bytes/Bulk",
+    "Bwd Avg Packets/Bulk",
+    "Bwd Avg Bulk Rate"
+  ],
+  "has_timestamp": false,
+  "splits": {
+    "train": {
+      "n": 233828,
+      "label_counts": {
+        "Benign": 228338,
+        "FTP-Patator": 3559,
+        "SSH-Patator": 1931
+      },
+      "attack_prevalence": 0.023478796380245307,
+      "fingerprint": "32eb93a53ab2b773"
+    },
+    "val": {
+      "n": 77943,
+      "label_counts": {
+        "Benign": 76113,
+        "FTP-Patator": 1186,
+        "SSH-Patator": 644
+      },
+      "attack_prevalence": 0.02347869597013202,
+      "fingerprint": "1d544940b69dbf73"
+    },
+    "test": {
+      "n": 77943,
+      "label_counts": {
+        "Benign": 76113,
+        "FTP-Patator": 1186,
+        "SSH-Patator": 644
+      },
+      "attack_prevalence": 0.02347869597013202,
+      "fingerprint": "ebc10d0e04817fd9"
+    }
+  },
+  "note_top_features": "Xem notebooks/01_explore_data.ipynb cho thong ke chi tiet"
+}

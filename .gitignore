@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# IDE / he dieu hanh
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Du lieu dau vao goc (47 MB): dat thu cong vao data/input/, khong dua len Git.
+# Muon dua len Git: xoa dong duoi (van nho hon gioi han 100 MB cua GitHub).
+data/input/*.parquet
+data/output/processed/*.npz
+
+# Giu thu muc rong
+!data/input/.gitkeep
